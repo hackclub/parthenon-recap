@@ -1,0 +1,145 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/globe.gl"></script>
+  <!--<script src="../../dist/globe.gl.js"></script>-->
+</head>
+
+<body>
+  <div id="globeViz"></div>
+
+  <script type = "module">
+    // Fit canvas to window size upon resize
+    import { MeshLambertMaterial, DoubleSide } from 'https://esm.sh/three';
+    import * as topojson from 'https://esm.sh/topojson-client';
+    const countries = [
+  {
+    "startLat": 37.0902,
+    "startLng": -95.7129,
+    "endLat": 40.7128,
+    "endLng": -74.0060,
+    "color": "#FFD700"
+  },
+  {
+    "startLat": 39.3999,
+    "startLng": -8.2245,
+    "endLat": 40.7128,
+    "endLng": -74.0060,
+    "color": "#FFD700"
+  },
+  {
+    "startLat": 56.1304,
+    "startLng": -106.3468,
+    "endLat": 40.7128,
+    "endLng": -74.0060,
+    "color": "#FFD700"
+  },
+  {
+    "startLat": -0.0236,
+    "startLng": 37.9062,
+    "endLat": 40.7128,
+    "endLng": -74.0060,
+    "color": "#FFD700"
+  },
+  {
+    "startLat": -25.2744,
+    "startLng": 133.7751,
+    "endLat": 40.7128,
+    "endLng": -74.0060,
+    "color": "#FFD700"
+  },
+  {
+    "startLat": -0.7893,
+    "startLng": 113.9213,
+    "endLat": 40.7128,
+    "endLng": -74.0060,
+    "color": "#FFD700"
+  },
+  {
+    "startLat": 20.5937,
+    "startLng": 78.9629,
+    "endLat": 40.7128,
+    "endLng": -74.0060,
+    "color": "#FFD700"
+  },
+  {
+    "startLat": 4.5709,
+    "startLng": -74.2973,
+    "endLat": 40.7128,
+    "endLng": -74.0060,
+    "color": "#FFD700"
+  },
+  {
+    "startLat": -14.2350,
+    "startLng": -51.9253,
+    "endLat": 40.7128,
+    "endLng": -74.0060,
+    "color": "#FFD700"
+  },
+  {
+    "startLat": 36.2048,
+    "startLng": 138.2529,
+    "endLat": 40.7128,
+    "endLng": -74.0060,
+    "color": "#FFD700"
+  },
+  {
+    "startLat": 55.3781,
+    "startLng": -3.4360,
+    "endLat": 40.7128,
+    "endLng": -74.0060,
+    "color": "#FFD700"
+  },
+  {
+    "startLat": -38.4161,
+    "startLng": -63.6167,
+    "endLat": 40.7128,
+    "endLng": -74.0060,
+    "color": "#FFD700"
+  },
+  {
+    "startLat": 41.8719,
+    "startLng": 12.5674,
+    "endLat": 40.7128,
+    "endLng": -74.0060,
+    "color": "#FFD700"
+  },
+  {
+    "startLat": 14.0583,
+    "startLng": 108.2772,
+    "endLat": 40.7128,
+    "endLng": -74.0060,
+    "color": "#FFD700"
+  },
+  {
+    "startLat": 51.9194,
+    "startLng": 19.1451,
+    "endLat": 40.7128,
+    "endLng": -74.0060,
+    "color": "#FFD700"
+  }
+]
+    const world = new Globe(document.getElementById('globeViz'))
+      .showGlobe(false)
+      .backgroundColor('rgba(0,0,0,0)')
+      .showAtmosphere(false)
+      .arcsData(countries)
+      .arcColor('color')
+      .arcDashLength(() => Math.random())
+      .arcDashAnimateTime(4000)
+      .width(600)
+      .height(600);
+
+    world.controls().enableZoom = false;  
+    world.controls().autoRotate = true;
+    world.controls().autoRotateSpeed = 0.5;
+    
+    fetch('//cdn.jsdelivr.net/npm/world-atlas/land-110m.json').then(res => res.json())
+      .then(landTopo => {
+        world
+          .polygonsData(topojson.feature(landTopo, landTopo.objects.land).features)
+          .polygonCapMaterial(new MeshLambertMaterial({ color: '#EBD491', side: DoubleSide }))
+          .polygonSideColor(() => 'rgba(0,0,0,0)');
+      });
+</script>
+</body>

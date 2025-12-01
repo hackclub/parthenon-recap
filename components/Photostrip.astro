@@ -1,0 +1,15 @@
+---
+interface Props {
+    photos: {"url": string, "description": string}[]
+    className?: string
+}
+
+const { photos, className } = Astro.props;
+---
+
+<div class = {`bg-white flex flex-col gap-3 p-4 w-64 shadow-lg ${className}`}>
+    {photos.map((photo) => 
+        <img src = {photo.url} alt = {photo.description} class = "h-36 w-full image-cover object-cover"/>
+    )}
+    <p class = "text-center">parthenon 2025!</p>
+</div>

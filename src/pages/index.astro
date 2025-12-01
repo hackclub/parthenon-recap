@@ -1,16 +1,53 @@
 ---
+import Layout from "@/components/Layout.astro"
+import Globe from "@/components/Globe.astro"
+import Photostrip from "@/components/Photostrip.astro"
+
+const photos = [{
+	"url": "https://placehold.co/40x40",
+	"description": "test"
+},
+{
+	"url": "https://placehold.co/40x40",
+	"description": "test"
+}]
 
 ---
+<Layout>
+	<a href="https://hackclub.com/"><img class = "absolute top-5 left-0 w-64 z-30" src="https://assets.hackclub.com/banners/2025.svg" alt="Hack Club"/></a>
+	<div class = "relative h-screen top-0 flex flex-col justify-center w-full">
+		<div class = "inset-0 absolute bg-[url('background.jpg')] bg-center"></div>
+		<div class = "absolute bg-cover inset-0 bg-linear-to-b via-70% via-theme-green-darker/85 from-theme-green-darker/80 to-black/70 z-20"></div>
+	<img src = "left-paper-corner.png" class = "absolute top-0 md:h-8/12"/>
+	<img src = "right-paper-corner.png" class = "absolute md:h-8/12 bottom-0 right-0"/>
+	<section class = "z-30 min-h-screen w-screen flex flex-col items-center justify-center">
+		<p class = "text-outline">3-day hackathon in the heart of New York City</p>
+		<div class = "bg-[url('s-vine.png')] drop-shadow-[0_0_48px_rgba(219,196,145,0.8)] bg-center bg-no-repeat bg-cover w-5/7 md:w-4/7">
+			<img class = "mx-auto w-11/12" src = "logo.png"/>
+		</div>
+		<p class = "text-outline">November 14th-16th 2025</p>
+	</section>
+	</div>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+
+	<section class = "bg-linear-to-b from-black via-25% to-theme-green-darker flex flex-row relative">
+		<img src="column.png" class="absolute rotate-90 z-50 w-screen scale-[calc(16%*-1)_calc(15%*-1)] -translate-y-6/12 left-1/2 -translate-x-1/2"/>  <img src="small-vine-1.png" class="w-4/12 h-6/12"/>
+		
+		<div class = "pt-20">
+			<div class = "flex flex-col lg:flex-row items-center justify-between gap-20 not-first:hidden">
+				<div>
+					<h1 class = "text-center">One night in mid-November...</h1>
+					<p class = "text-center text-2xl">126 teen programmers from 15 different countries gathered at Civic Hall in Manhattan, NYC.</p>
+				</div>
+				<div class = "hidden lg:inline">
+					<Globe/>
+				</div>
+			</div>
+			<Photostrip photos = {photos} className = "rotate-12"/>
+		</div>
+
+		<img src = "small-vine-2.png" class = "w-4/12 h-7/12"/>
+
+	</section>
+
+</Layout>
