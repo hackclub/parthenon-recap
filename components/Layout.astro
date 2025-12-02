@@ -1,19 +1,23 @@
 ---
 import '../src/styles/global.css'
+interface Props {
+	page_title?: string
+}
+const { page_title } = Astro.props;
 ---
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Parthenon</title>
+		<title>Parthenon {page_title ? " - " + page_title : ""}</title>
 	</head>
 	
-	<body class = "h-full w-full">
+	<body class = "h-full w-full relative">
         <slot/>
 		<div class = "bg-theme-green-darker text-center p-12 relative overflow-hidden">
-			<img src = "../../src/images/top-paper.png" class = "absolute top-0 right-0 h-64"/>
+			<img src = "../../src/images/top-paper.png" class = "absolute top-0 right-0 h-32 md:h-64"/>
 			<img src = "../../src/images/single-vine.png" class = "absolute top-0 left-0 h-10/12"/>
 				Made with ♡ by a team of teenagers from Hack Club
 			<div class = "flex flex-row items-center justify-center">
