@@ -14,8 +14,8 @@ interface Project {
 ---
 
 <Layout page_title = "Projects" >
-    <section class = "relative bg-linear-to-b from-black via-10% via-theme-green-darker to-theme-green p-20">
-        <div class="absolute inset-0 opacity-40 bg-[url(background.svg)] z-0 w-full h-full pointer-events-none"></div>
+    <section class = "relative bg-linear-to-b from-black via-10% via-theme-green-darker to-theme-green p-10 md:p-20">
+        <div class="absolute inset-0 opacity-40 z-0 w-full h-full pointer-events-none" style = "background-image: url('/background.svg')"></div>
 
         <a href = "/" class = "flex flex-row gap-4 items-center z-30 ">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
@@ -24,20 +24,20 @@ interface Project {
             <span>back home</span>
         </a>
 
-        <div class = "flex flex-col items-center justify-center z-30">
-        <img src = "gold-vine.png" class = "w-1/3 mx-auto"/>
+        <div class = "flex flex-col items-center justify-center z-30 text-center">
+        <img src = "/gold-vine.png" class = "w-1/3 mx-auto"/>
         <h1>all parthenon projects</h1>
         <p>Totalling {response.length} submissions across 126 attendees.</p>
-        <div class = "grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto z-30">
+        <div class = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto z-30">
             {response.map((project: Project) => 
                 (
-                    <div id = {project.fields.project_name.replace(/ /g, "_")} class = "flex flex-col gap-4 border border-theme-cream bg-theme-green-darker">
+                    <div id = {project.fields.project_name.replace(/ /g, "_")} class = "flex flex-col h-max md:h-full gap-4 border border-theme-cream bg-theme-green-darker">
                         <img src = {project.fields.thumbnail} class = "w-full h-48 object-cover"/>
-                            <div class = "flex flex-col h-full px-5 pb-5">
+                            <div class = "flex flex-col h-max md:h-full px-5 pb-5">
                                 <p>
                                     {project.fields.project_name}
                                 </p>
-                                <p class = "text-lg grow">
+                                <p class = "text-lg md:grow">
                                     {project.fields.description.slice(0,200)}{project.fields.description.length >= 199 ? "..." : ""}
                                 </p>
 
@@ -50,7 +50,7 @@ interface Project {
                 )
             )}
         </div>
-        <img src = "gold-vine.png" class = "w-1/3 mx-auto rotate-180"/>
+        <img src = "/gold-vine.png" class = "w-1/3 mx-auto rotate-180"/>
     </div>
     </section>
 </Layout>
