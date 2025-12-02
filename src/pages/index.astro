@@ -4,50 +4,93 @@ import Globe from "@/components/Globe.astro"
 import Photostrip from "@/components/Photostrip.astro"
 
 const photos = [{
-	"url": "https://placehold.co/40x40",
-	"description": "test"
+	"url": "photostrip-1.JPG",
+	"description": "Attendees on the MTA (New York's subway)"
 },
 {
-	"url": "https://placehold.co/40x40",
+	"url": "photostrip-2.png",
+	"description": "test"
+}]
+
+const photos_2 = [{
+	"url": "photostrip-3.jpg",
+	"description": "Two attendees showing off their code."
+},
+{
+	"url": "photostrip-4.jpeg",
 	"description": "test"
 }]
 
 ---
 <Layout>
-	<a href="https://hackclub.com/"><img class = "absolute top-5 left-0 w-64 z-30" src="https://assets.hackclub.com/banners/2025.svg" alt="Hack Club"/></a>
+	<a href="https://hackclub.com/"><img class = "absolute top-5 left-0 w-48 md:w-64 z-30" src="https://assets.hackclub.com/banners/2025.svg" alt="Hack Club"/></a>
 	<div class = "relative h-screen top-0 flex flex-col justify-center w-full">
-		<div class = "inset-0 absolute bg-[url('background.jpg')] bg-center"></div>
+		<div class = "inset-0 absolute bg-[url('background.jpg')] bg-center bg-cover"></div>
 		<div class = "absolute bg-cover inset-0 bg-linear-to-b via-70% via-theme-green-darker/85 from-theme-green-darker/80 to-black/70 z-20"></div>
 	<img src = "left-paper-corner.png" class = "absolute top-0 md:h-8/12"/>
 	<img src = "right-paper-corner.png" class = "absolute md:h-8/12 bottom-0 right-0"/>
-	<section class = "z-30 min-h-screen w-screen flex flex-col items-center justify-center">
-		<p class = "text-outline">3-day hackathon in the heart of New York City</p>
-		<div class = "bg-[url('s-vine.png')] drop-shadow-[0_0_48px_rgba(219,196,145,0.8)] bg-center bg-no-repeat bg-cover w-5/7 md:w-4/7">
-			<img class = "mx-auto w-11/12" src = "logo.png"/>
+	<section class = "z-30 w-screen flex flex-col items-center justify-between gap-2">
+		<p class = "text-outline">3-day hackathon in New York City</p>
+		<div class = "bg-[url('s-vine.png')] drop-shadow-[0_0_48px_rgba(219,196,145,0.8)] bg-center bg-no-repeat bg-cover w-6/7 md:w-4/7">
+			<img class = "mx-auto w-full md:w-11/12" src = "logo.png"/>
 		</div>
 		<p class = "text-outline">November 14th-16th 2025</p>
 	</section>
 	</div>
 
-
-	<section class = "bg-linear-to-b from-black via-25% to-theme-green-darker flex flex-row relative">
-		<img src="column.png" class="absolute rotate-90 z-50 w-screen scale-[calc(16%*-1)_calc(15%*-1)] -translate-y-6/12 left-1/2 -translate-x-1/2"/>  <img src="small-vine-1.png" class="w-4/12 h-6/12"/>
-		
-		<div class = "pt-20">
-			<div class = "flex flex-col lg:flex-row items-center justify-between gap-20 not-first:hidden">
-				<div>
-					<h1 class = "text-center">One night in mid-November...</h1>
-					<p class = "text-center text-2xl">126 teen programmers from 15 different countries gathered at Civic Hall in Manhattan, NYC.</p>
-				</div>
-				<div class = "hidden lg:inline">
-					<Globe/>
+	<div class = "relative">
+		<div class="min-h-screen absolute inset-0 opacity-40 bg-[url(background.svg)]"></div>
+		<section class = "bg-linear-to-b from-black via-25% to-theme-green-darker flex flex-row">
+			<img src="column.png" class="absolute rotate-90 z-20 w-screen scale-[calc(16%*-1)_calc(15%*-1)] -translate-y-6/12 left-1/2 -translate-x-1/2"/>  
+			<img src="small-vine-1.png" class="basis-3/12 w-4/12 h-6/12"/>
+			<div class = "w-11/12 pt-20">
+				<div class = "flex flex-col lg:flex-row items-center justify-between gap-20 not-first:hidden">
+					<div>
+						<h1 class = "text-center">For three days in mid-November...</h1>
+						<p class = "text-center text-2xl">126 teen programmers from 15 different countries gathered at Duolingo HQ, then at Civic Hall in <span class = "text-highlight">Manhattan, NYC.</span></p>
+					</div>
+					<div class = "hidden lg:inline">
+						<Globe/>
+					</div>
 				</div>
 			</div>
-			<Photostrip photos = {photos} className = "rotate-12"/>
+			<img src = "small-vine-2.png" class = "basis-3/12 w-4/12 h-7/12"/>
+		</section>
+
+		<section class = "bg-theme-green-darker">
+			<div class = "flex flex-col lg:flex-row gap-4 items-center justify-center">
+				<div class = "w-full overflow-hidden">
+					<Photostrip photos = {photos} className = "-rotate-12 translate-x-8 sm:max-lg:translate-x-32 md:max-lg:translate-x-64 translate-y-12 lg:translate-x-16 z-0"/>
+					<Photostrip photos = {photos_2} className = "rotate-12 translate-x-64 sm:max-lg:translate-x-64 md:max-lg:translate-x-110 lg:translate-x-50 -translate-y-64 lg:-translate-y-48 z-20"/>
+				</div>
+				<div class = "w-8/12 -translate-y-48 lg:-translate-y-32 lg:basis-2/3 text-center mx-16 md:max-lg:mr-20 lg:mr-40">
+					<img src = "gold-vine.png" class = "w-1/2 mx-auto"/>
+					<h1>40 hours of hacking</h1>
+					<p>From Friday night to Sunday morning, attendees spent hours hacking away at their Parthenon projects. Teens built everything from <a target = "_blank" href = "/projects#Date_The_Duo">multiplayer dating sim games</a> to <a target = "_blank" href = "/projects#arDJuino">Arduino-controlled DJ sets</span>.</p>
+					<a class = "my-4 bg-theme-cream border p-4 block w-full md:w-1/2 mx-auto text-theme-green-darker text-center text-3xl" href = "/projects">
+						view all projects
+					</a>
+					<img src = "gold-vine.png" class = "w-1/2 mx-auto rotate-180"/>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<div class = "relative h-9/12 top-0 flex flex-col w-full">
+		<div class = "inset-0 absolute bg-[url('crowd.JPG')] bg-center bg-cover"></div>
+		<div class = "absolute bg-cover inset-0 bg-linear-to-b via-70% via-theme-green-darker/85 from-theme-green-darker/80 to-black/70 z-20"></div>
+	
+		<section class = "h-9/12 flex flex-col top-0 left-0 md:flex-row gap-4 z-30">
+		<div class = "bg-theme-cream/80 basis-1/2 p-6 md:p-10 *:text-theme-green-darker">
+			<div class = "border-2 border-theme-green-darker p-6 w-full h-full [&>span]:text-lg [&>span]:md:text-2xl [&>span]:block text-center">
+				<h1 class = "text-2xl md:text-4xl break-all">Parthenon</h1>
+				<span>Parthenon was hosted by Hack Club as part of the <a target = "_blank" href = "https://athena.hackclub.com">Athena Initiative</a> for girls and nonbinary students worldwide.</span>
+				<br/>
+				<br/>
+				<span>Prior to coming to Parthenon, attendees spent 30 hours coding and built 3 technical projects as part of the <a target = "_blank" href = "https://award.athena.hackclub.com">Athena Award</a>, a program ran in collaboration with GirlsWhoCode, MIT Beaverworks, and many more.</span>
+			</div>
 		</div>
 
-		<img src = "small-vine-2.png" class = "w-4/12 h-7/12"/>
-
 	</section>
-
+	</div>
 </Layout>

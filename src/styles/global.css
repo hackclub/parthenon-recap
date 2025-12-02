@@ -30,11 +30,15 @@
     }
 
     h1 {
-        @apply py-4 text-3xl md:text-5xl
+        @apply py-4 text-4xl md:text-5xl
     }
     
     h2 {
-        @apply py-2 text-2xl md:text-4xl
+        @apply py-2 text-4xl md:text-4xl
+    }
+
+    a {
+        @apply underline underline-offset-4 hover:decoration-wavy
     }
 }
 
@@ -42,10 +46,14 @@
 
 @layer components {
     p {
-        @apply text-theme-cream py-4 text-lg text-shadow-eg
+        @apply text-theme-cream py-4 text-lg md:text-2xl text-shadow-eg
 
     }
 }
     .text-outline {
-        @apply text-center p-4 text-lg sm:text-xl md:text-3xl -translate-y-12 md:-translate-y-20 mt-4 text-theme-cream text-shadow-ex
+        @apply text-center p-4 text-xl md:text-3xl -translate-y-12 md:-translate-y-20 mt-4 text-theme-cream text-shadow-ex
+    }
+
+    .text-highlight {
+        @apply underline underline-offset-4 decoration-wavy
     }
