@@ -1,0 +1,14 @@
+---
+interface Props {
+    url: string
+    description: string
+    className?: string
+}
+
+const { url, description, className } = Astro.props;
+---
+
+<div class = {`bg-white flex flex-col gap-3 p-2 md:p-4 w-32 sm:w-42 md:w-64 shadow-lg ${className}`}>
+    <img src = {url} alt = {description} class = "h-24 md:h-36 w-full image-cover object-cover"/>
+    <span class = "text-theme-green-darker  text-center">{description}</span>
+</div>

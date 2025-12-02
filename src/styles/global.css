@@ -30,7 +30,7 @@
     }
 
     h1 {
-        @apply py-4 text-3xl sm:text-4xl md:text-5xl
+        @apply py-4 text-3xl sm:text-4xl md:text-5xl text-center
     }
     
     h2 {

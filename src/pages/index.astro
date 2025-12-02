@@ -2,6 +2,14 @@
 import Layout from "@/components/Layout.astro"
 import Globe from "@/components/Globe.astro"
 import Photostrip from "@/components/Photostrip.astro"
+import { response } from "@/src/pages/projects.astro"
+import type { Project } from "@/src/pages/projects.astro"
+import Card from "@/components/Card.astro"
+import Polaroid from "@/components/Polaroid.astro"
+
+const firstPlace = response.filter((project: Project) => project.fields.project_name == "Catatime: Fill Your Coding Cup")[0]
+const secondPlace = response.filter((project: Project) => project.fields.project_name == "Synthena")[0]
+const thirdPlace = response.filter((project: Project) => project.fields.project_name == "rate my rizz")[0]
 
 const photos = [{
 	"url": "photostrip-1.JPG",
@@ -21,6 +29,14 @@ const photos_2 = [{
 	"description": "test"
 }]
 
+const polaroids = [
+	{"url": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/1d4744e76819a2e040cf6b3e9b3026d740218677_image.png", "description": "don't mind the celsius?!", "className": "rotate-12"},
+	{"url": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/c0962c010ed0cc123e0e6adab551fd0b15666469_image.png", "description": "locked in", "className": "-rotate-12"},
+	{"url": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/1b98c074f2431bb2bd9d28f969536ca1e7d1555f_image.png", "description": "out and about in new york city", "className": "-rotate-[8deg]"},
+	{"url": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ef872169d20d5bd8fd37eaa526bff98c7012685e_image.png", "description": "📸", "className": "rotate-[20deg]"},
+	{"url": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/d134154c13511e14554c1074194f8b29ca88d566_image.png", "description": "demo time!", "className": "rotate-0"},
+]
+
 ---
 <Layout>
 	<a href="https://hackclub.com/"><img class = "absolute top-5 left-0 w-48 md:w-64 z-30" src="https://assets.hackclub.com/banners/2025.svg" alt="Hack Club"/></a>
@@ -38,7 +54,7 @@ const photos_2 = [{
 	</section>
 	</div>
 
-	<div class = "relative">
+	<div class = "h-full relative">
 		<div class="min-h-screen absolute inset-0 opacity-40" style = "background-image: url(background.svg)"></div>
 		<section class = "bg-linear-to-b from-black via-25% to-theme-green-darker flex flex-row">
 			<img src="column.png" class="absolute rotate-90 z-20 w-screen scale-[calc(16%*-1)_calc(15%*-1)] -translate-y-6/12 left-1/2 -translate-x-1/2"/>  
@@ -57,7 +73,7 @@ const photos_2 = [{
 			<img src = "small-vine-2.png" class = "basis-3/12 w-4/12 h-7/12"/>
 		</section>
 
-		<section class = "bg-theme-green-darker">
+		<section class = "bg-theme-green-darker h-[145vh] sm:h-[130vh] md:max-lg:h-[140vh] lg:h-[80vh]">
 			<div class = "flex flex-col lg:flex-row gap-4 items-center justify-center">
 				<div class = "w-full overflow-hidden">
 					<Photostrip photos = {photos} className = "-rotate-12 translate-x-8 sm:max-lg:translate-x-32 md:max-lg:translate-x-64 translate-y-12 lg:translate-x-16 z-0"/>
@@ -74,6 +90,29 @@ const photos_2 = [{
 				</div>
 			</div>
 		</section>
+
+		<section class = "h-[280vh] md:h-[240vh] lg:h-[120vh] bg-linear-to-t from-black via-25% to-theme-green-darker flex flex-col p-10 md:p-20 text-center">
+				<h1>54 projects (and countless memories) made.</h1>
+				<p>At 8am on Sunday, attendees rushed to make sure their projects were shipped and working in time for the project showcase, which was attended by engineers at companies such as GitHub, Notion, Slack and Cloudflare.</p>
+				<p>The top three projects were determined through peer voting.</p>
+				<div class = "grid grid-cols-1 lg:grid-cols-3 gap-4 items-center justify-center h-full">
+					{[firstPlace, secondPlace, thirdPlace].map((project: Project, index: number) => 
+					<div class = "flex flex-col gap-4 items-center justify-center h-full">
+						<h2>{index + 1}.</h2>
+						<Card project = {project} className = "w-full z-40" descriptionCap={90}/>
+					</div>
+					)}
+				</div>
+		</section>
+
+		<section class = "bg-linear-to-b from-black via-25% to-theme-green-darker h-max z-30 pt-10 pb-20">
+			<div class = "max-xs:pt-32 py-10 flex justify-around flex-row flex-wrap overflow-hidden">
+				{polaroids.map((polaroid: any) => (
+					<Polaroid url = {polaroid.url} description = {polaroid.description} className={polaroid.className}/>
+				))}
+			</div>
+		</section>
+
 	</div>
 
 	<div class = "relative h-9/12 top-0 flex flex-col w-full">
@@ -83,7 +122,7 @@ const photos_2 = [{
 		<div class = "bg-theme-cream/80 basis-1/2 p-6 md:p-10 *:text-theme-green-darker">
 			<div class = "border-2 border-theme-green-darker p-6 w-full h-full [&>span]:text-lg [&>span]:md:text-2xl [&>span]:block text-center">
 				<h1 class = "text-2xl md:text-4xl break-all">Parthenon</h1>
-				<span>Parthenon was hosted by Hack Club as part of the <a target = "_blank" href = "https://athena.hackclub.com">Athena Initiative</a> for girls and nonbinary students worldwide. Food and accommodation were provided, with 20k USD of travel grants being distributed to attendees.</span>
+				<span>Parthenon was hosted by Hack Club as part of the <a target = "_blank" href = "https://athena.hackclub.com">Athena Initiative</a> for girls and nonbinary students worldwide. Food and accommodation were provided, with over 20k USD of travel grants being distributed to attendees.</span>
 				<br/>
 				<br/>
 				<span>Prior to coming to Parthenon, attendees spent 30 hours coding and built 3 technical projects as part of the <a target = "_blank" href = "https://award.athena.hackclub.com">Athena Award</a>, a program ran in collaboration with GirlsWhoCode, MIT Beaverworks, and many more.</span>
