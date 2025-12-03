@@ -34,7 +34,7 @@ const polaroids = [
 	{"url": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/c0962c010ed0cc123e0e6adab551fd0b15666469_image.png", "description": "locked in", "className": "-rotate-12"},
 	{"url": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/1b98c074f2431bb2bd9d28f969536ca1e7d1555f_image.png", "description": "out and about in new york city", "className": "-rotate-[8deg]"},
 	{"url": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ef872169d20d5bd8fd37eaa526bff98c7012685e_image.png", "description": "📸", "className": "rotate-[20deg]"},
-	{"url": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/d134154c13511e14554c1074194f8b29ca88d566_image.png", "description": "demo time!", "className": "rotate-0"},
+	{"url": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/d134154c13511e14554c1074194f8b29ca88d566_image.png", "description": "demo time!", "className": "z-30"},
 ]
 
 ---
@@ -56,9 +56,9 @@ const polaroids = [
 
 	<div class = "h-full relative">
 		<div class="min-h-screen absolute inset-0 opacity-40" style = "background-image: url(background.svg)"></div>
-		<section class = "bg-linear-to-b from-black via-25% to-theme-green-darker flex flex-row">
+		<section class = "bg-linear-to-b from-black via-25% to-theme-green-darker flex flex-row min-h-max">
 			<img src="column.png" class="absolute rotate-90 z-20 w-screen scale-[calc(16%*-1)_calc(15%*-1)] -translate-y-6/12 left-1/2 -translate-x-1/2"/>  
-			<img src="small-vine-1.png" class="basis-3/12 w-4/12 h-6/12"/>
+			<img src="small-vine-1.png" class="basis-2/12 w-4/12 h-6/12"/>
 			<div class = "w-11/12 pt-20">
 				<div class = "flex flex-col lg:flex-row items-center justify-between gap-20 not-first:hidden">
 					<div>
@@ -70,14 +70,14 @@ const polaroids = [
 					</div>
 				</div>
 			</div>
-			<img src = "small-vine-2.png" class = "basis-3/12 w-4/12 h-7/12"/>
+			<img src = "small-vine-2.png" class = "basis-2/12 w-4/12 h-7/12"/>
 		</section>
 
-		<section class = "bg-theme-green-darker h-[145vh] sm:h-[130vh] md:max-lg:h-[140vh] lg:h-[80vh]">
+		<section class = "bg-theme-green-darker min-h-[80vh] sm:min-h-[90vh] md:max-lg:min-h-[140vh] lg:min-h-[80vh]">
 			<div class = "flex flex-col lg:flex-row gap-4 items-center justify-center">
-				<div class = "w-full overflow-hidden">
-					<Photostrip photos = {photos} className = "-rotate-12 translate-x-8 sm:max-lg:translate-x-32 md:max-lg:translate-x-64 translate-y-12 lg:translate-x-16 z-0"/>
-					<Photostrip photos = {photos_2} className = "rotate-12 translate-x-64 sm:max-lg:translate-x-64 md:max-lg:translate-x-110 lg:translate-x-50 -translate-y-64 lg:-translate-y-48 z-20"/>
+				<div class = "w-full overflow-hidden z-40 *:z-40">
+					<Photostrip photos = {photos} className = " -rotate-12 translate-x-8 sm:max-lg:translate-x-32 md:max-lg:translate-x-64 translate-y-12 lg:translate-x-16 z-30"/>
+					<Photostrip photos = {photos_2} className = " rotate-12 translate-x-64 sm:max-lg:translate-x-64 md:max-lg:translate-x-110 lg:translate-x-50 -translate-y-64 lg:-translate-y-48 z-30"/>
 				</div>
 				<div class = "w-8/12 -translate-y-48 lg:-translate-y-32 lg:basis-2/3 text-center mx-16 md:max-lg:mr-20 lg:mr-40">
 					<img src = "gold-vine.png" class = "w-1/2 mx-auto"/>
@@ -91,7 +91,7 @@ const polaroids = [
 			</div>
 		</section>
 
-		<section class = "h-[280vh] md:h-[240vh] lg:h-[120vh] bg-linear-to-t from-black via-25% to-theme-green-darker flex flex-col p-10 md:p-20 text-center">
+		<section class = "min-h-[160vh] md:min-h-[240vh] lg:min-h-[120vh] bg-linear-to-t from-black via-25% to-theme-green-darker flex flex-col px-10 pb-10 md:px-20 md:pb-20 text-center">
 				<h1>54 projects (and countless memories) made.</h1>
 				<p>At 8am on Sunday, attendees rushed to make sure their projects were shipped and working in time for the project showcase, which was attended by engineers at companies such as GitHub, Notion, Slack and Cloudflare.</p>
 				<p>The top three projects were determined through peer voting.</p>

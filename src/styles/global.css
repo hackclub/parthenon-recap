@@ -14,11 +14,13 @@
     @font-face {
         font-family: "Windsol";
         src: url("/Windsol-Regular.ttf") format("truetype");
+        font-display: swap;
     }
 
     @font-face {
         font-family: "EB_Garamond";
         src: url("/EB_Garamond/EBGaramond-VariableFont_wght.ttf") format("truetype");
+        font-display: swap;
     }
 
     body {

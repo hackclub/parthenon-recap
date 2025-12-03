@@ -11,6 +11,7 @@ const { page_title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="A hackathon - as part of the Athena Initiative - for girls and nonbinary students in New York City, running from November 14th-16th.">
 		<title>Parthenon {page_title ? " - " + page_title : ""}</title>
 	</head>
 	
@@ -18,7 +19,7 @@ const { page_title } = Astro.props;
         <slot/>
 		<div class = "bg-theme-green-darker text-center p-12 relative overflow-hidden">
 			<img src = "/top-paper.png" class = "absolute top-0 right-0 h-32 md:h-64"/>
-			<img src = "/single-vine.png" class = "absolute top-0 left-0 h-10/12"/>
+			<img src = "/single-vine.png" class = "absolute top-0 left-0 h-5/12 sm:h-10/12"/>
 				Made with ♡ by a team of teenagers from Hack Club
 			<div class = "flex flex-row items-center justify-center">
 				<a target = "_blank" href = "https://hackclub.com">Hack Club</a>
