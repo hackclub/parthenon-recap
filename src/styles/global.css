@@ -1,16 +1,5 @@
 @import "tailwindcss";
 
-@theme {
-    --text-shadow-ex: 2px 2px #28372e,2px -2px #28372e,-2px 2px #28372e,-2px -2px #28372e,2px 0 #28372e,0 2px #28372e,-2px 0 #28372e,0 -2px #28372e;
-    --text-shadow-eg: 2px 2px #09090A,2px -2px #09090A,-2px 2px #09090A,-2px -2px #09090A,2px 0 #09090A,0 2px #09090A,-2px 0 #09090A,0 -2px #09090A;
-    
-    --color-theme-green: #3B5435;
-    --color-theme-green-darker: #22291f;
-    --color-theme-cream: #DBC491;
-
-}
-
-@layer base {
     @font-face {
         font-family: "Windsol";
         src: url("/Windsol-Regular.ttf") format("truetype");
@@ -23,12 +12,24 @@
         font-display: swap;
     }
 
+
+@theme {
+    --text-shadow-ex: 2px 2px #28372e,2px -2px #28372e,-2px 2px #28372e,-2px -2px #28372e,2px 0 #28372e,0 2px #28372e,-2px 0 #28372e,0 -2px #28372e;
+    --text-shadow-eg: 2px 2px #09090A,2px -2px #09090A,-2px 2px #09090A,-2px -2px #09090A,2px 0 #09090A,0 2px #09090A,-2px 0 #09090A,0 -2px #09090A;
+    
+    --color-theme-green: #3B5435;
+    --color-theme-green-darker: #22291f;
+    --color-theme-cream: #DBC491;
+    --font-garamond: "EB_Garamond", Garamond, serif;
+}
+
+@layer base {
     body {
         @apply font-[Windsol] text-theme-cream 
     }
 
     h1, h2 {
-        @apply font-[EB_Garamond] uppercase
+        @apply font-garamond uppercase
     }
 
     h1 {
