@@ -14,6 +14,7 @@ const { page_title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content="A hackathon - as part of the Athena Initiative - for girls and nonbinary students in New York City, running from November 14th-16th.">
+		<meta property="og:image" content={images["../src/assets/background.jpg"].default.src}/>
 		<title>Parthenon {page_title ? " - " + page_title : ""}</title>
 	</head>
 	
